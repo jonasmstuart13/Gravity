@@ -48,3 +48,7 @@ function giveCurrentVelocity(t) {
     0.5
   );
 }
+
+function giveInitialVelocityVector() {
+  return [Math.cos(initAngle), Math.sin(initAngle)];
+}
