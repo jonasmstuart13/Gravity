@@ -7,7 +7,7 @@ var GravityFunctions = {
   initHeight: 0,
   assignInitialValues() {
     this.initAngle = parseFloat(prompt("Intial Angle: "));
-    this.initvelocity = parseFloat(prompt("Initial Velocity: "));
+    this.initVelocity = parseFloat(prompt("Initial Velocity: "));
     this.initHeight = parseFloat(prompt("Initial Height: "));
     this.setHorizontalAndVerticalVelocity();
   },
@@ -30,7 +30,7 @@ var GravityFunctions = {
   horizontalDistanceToTimeFunction(d) {
     return (1 / this.initHorizontalVelocity) * d;
   },
-  timeToHeightFunction() {
+  timeToHeightFunction(t) {
     return (
       (this.accelerationDueToGravity / 2) * t * t +
       this.initUpwardVelocity * t +
@@ -56,34 +56,29 @@ var GravityFunctions = {
   getInitialVelocityVector() {
     return [Math.cos(this.initAngle), Math.sin(this.initAngle)];
   },
-  getCurrentVelocityVector(d){
+  getCurrentVelocityVector(d) {
     //Assume that the point of tangency is the origin
-    var currentUpwardVector = this.getCurrentUpwardVelocity(d)
-    var currentHorizontalVector = this.initHorizontalVelocity
-    return [currentHorizontalVector, currentUpwardVector]
+    var currentUpwardVector = this.getCurrentUpwardVelocity(d);
+    var currentHorizontalVector = this.initHorizontalVelocity;
+    return [currentHorizontalVector, currentUpwardVector];
   },
-  getCurrentAngle(d){
-    var currentUpwardVector = this.getCurrentVelocityVector(d)[0]
-    var currentHorizontalVector = this.getCurrentVelocityVector(d)[1]
-    return Math.atan(currentUpwardVector/currentHorizontalVector)
+  getCurrentAngle(d) {
+    var currentUpwardVector = this.getCurrentVelocityVector(d)[0];
+    var currentHorizontalVector = this.getCurrentVelocityVector(d)[1];
+    return Math.atan(currentUpwardVector / currentHorizontalVector);
   },
-  getTangentForHeightToTime(t){
-    var x = t
-    var y = this.timeToHeightFunction(t)
-    var m = this.getCurrentUpwardVelocity(t)
-    var b = y-m*x
-    return "${y} = ${m}${x} + ${b}"
+  getTangentForHeightToTime(t) {
+    var x = t;
+    var y = this.timeToHeightFunction(t);
+    var m = this.getCurrentUpwardVelocity(t);
+    var b = y - m * x;
+    return "${y} = ${m}${x} + ${b}";
   },
-  getTangentForDistanceToHeight(d){
-    var x = d
-    var y = this.distanceToHeightFunction(d)
-    var m = this.getCurrentVelocity(d)
-    var b = y-m*x
-    return "${y} = ${m}*${x} + ${b}"
+  getTangentForDistanceToHeight(d) {
+    var x = d;
+    var y = this.distanceToHeightFunction(d);
+    var m = this.getCurrentVelocity(d);
+    var b = y - m * x;
+    return "${y} = ${m}*${x} + ${b}";
   }
 };
-
-
-
-  
-
