@@ -72,13 +72,13 @@ var GravityFunctions = {
     var y = this.timeToHeightFunction(t);
     var m = this.getCurrentUpwardVelocity(t);
     var b = y - m * x;
-    return "${y} = ${m}${x} + ${b}";
+    return `${y} = ${m}${x} + ${b}`;
   },
   getTangentForDistanceToHeight(d) {
     var x = d;
     var y = this.distanceToHeightFunction(d);
     var m = this.getCurrentVelocity(d);
     var b = y - m * x;
-    return "${y} = ${m}*${x} + ${b}";
+    return `${y} = ${m}*${x} + ${b}`;
   }
 };
