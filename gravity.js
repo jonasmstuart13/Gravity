@@ -2,10 +2,10 @@ var GravityFunctions = {
   accelerationDueToGravity: -9.8,
   initVelocity: 0,
   initAngle: 0,
-  initUpwardVelocity: Math.sin(this.initAngle) * this.initVelocity,
+  initVerticalVelocity: Math.sin(this.initAngle) * this.initVelocity,
   initHorizontalVelocity: Math.cos(this.initAngle) * this.initVelocity,
   initHeight: 0,
-  askInitializeInfo() {
+  assignInitialValues() {
     this.initAngle = parseFloat(prompt("Intial Angle: "));
     this.initvelocity = parseFloat(prompt("Initial Velocity: "));
     this.initHeight = parseFloat(prompt("Initial Height: "));
@@ -21,42 +21,69 @@ var GravityFunctions = {
     this.initHeight = h;
   },
   setHorizontalAndVerticalVelocity(a) {
-    this.initUpwardVelocity = Math.sin(this.initAngle) * this.initVelocity;
+    this.initVerticalVelocity = Math.sin(this.initAngle) * this.initVelocity;
     this.initHorizontalVelocity = Math.cos(this.initAngle) * this.initVelocity;
   },
-  horizontalFunction(t) {
+  timeToHorizontalDistanceFunction(t) {
     return this.initHorizontalVelocity * t;
   },
-  timeByDistanceFunction(d) {
+  horizontalDistanceToTimeFunction(d) {
     return (1 / this.initHorizontalVelocity) * d;
   },
-  verticalFunction(t) {
+  timeToHeightFunction() {
     return (
       (this.accelerationDueToGravity / 2) * t * t +
       this.initUpwardVelocity * t +
       this.initHeight
     );
   },
-  heightToDistance(d) {
-    return verticalFunction(timeByDistanceFunction(d));
+  distanceToHeightFunction(d) {
+    return this.timeToHeightFunction(this.horizontalDistanceToTimeFunction(d));
   },
-  giveCurrentUpwardVelocity(t) {
-    return -9.8 * t + this.initUpwardVelocity;
+  getCurrentVerticalVelocity(t) {
+    return -9.8 * t + this.initVerticalVelocity;
   },
-  giveCurrentHorizontalVelocity() {
+  getCurrentHorizontalVelocity() {
     return this.initHorizontalVelocity;
   },
-  giveCurrentVelocity(t) {
+  getCurrentVelocity(t) {
     return Math.pow(
-      Math.pow(giveCurrentUpwardVelocity(t), 2) +
-        Math.pow(giveCurrentHorizontalVelocity(), 2),
+      Math.pow(this.getCurrentUpwardVelocity(t), 2) +
+        Math.pow(this.getCurrentHorizontalVelocity(), 2),
       0.5
     );
   },
-  giveInitialVelocityVector() {
+  getInitialVelocityVector() {
     return [Math.cos(this.initAngle), Math.sin(this.initAngle)];
+  },
+  getCurrentVelocityVector(d){
+    //Assume that the point of tangency is the origin
+    var currentUpwardVector = this.getCurrentUpwardVelocity(d)
+    var currentHorizontalVector = this.initHorizontalVelocity
+    return [currentHorizontalVector, currentUpwardVector]
+  },
+  getCurrentAngle(d){
+    var currentUpwardVector = this.getCurrentVelocityVector(d)[0]
+    var currentHorizontalVector = this.getCurrentVelocityVector(d)[1]
+    return Math.atan(currentUpwardVector/currentHorizontalVector)
+  },
+  getTangentForHeightToTime(t){
+    var x = t
+    var y = this.timeToHeightFunction(t)
+    var m = this.getCurrentUpwardVelocity(t)
+    var b = y-m*x
+    return "${y} = ${m}${x} + ${b}"
+  },
+  getTangentForDistanceToHeight(d){
+    var x = d
+    var y = this.distanceToHeightFunction(d)
+    var m = this.getCurrentVelocity(d)
+    var b = y-m*x
+    return "${y} = ${m}*${x} + ${b}"
   }
 };
+
+
 
   
 
