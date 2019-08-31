@@ -1,1 +1,47 @@
-"" 
+#description p {
+  margin-top: 200px;
+  position: absolute;
+  margin-left: 50px;
+  margin-right: 850px;
+  margin-bottom: 20px;
+}
+
+#description h1 {
+  margin-top: 155px;
+  position: absolute;
+  margin-left: 25px;
+}
+
+#footerLinks footer {
+  background-color: blue;
+  border-top: 2px black solid;
+  position: absolute;
+  margin-top: 680px;
+  width: 1515px;
+  position: fixed;
+}
+
+#footerLinks footer #footerIMG {
+  background-image: url(DesmosLogo.png);
+  position: absolute;
+  width: 142px;
+  height: 45px;
+  display: inline-block;
+  margin: 5px;
+  margin-left: 50px;
+}
+
+#footerLinks footer #baseConverter {
+  position: absolute;
+  width: 142px;
+  height: 45px;
+  display: inline-block;
+  border: 1px black solid;
+  margin: 5px;
+  margin-left: 200px;
+  text-align: center;
+}
+
+#footerLinks {
+  background-color: blue;
+}
