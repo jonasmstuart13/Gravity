@@ -12,8 +12,7 @@
   margin-left: 25px;
 }
 
-#footerLinks footer {
-  background-color: blue;
+footer {
   border-top: 2px black solid;
   position: absolute;
   margin-top: 680px;
@@ -21,7 +20,7 @@
   position: fixed;
 }
 
-#footerLinks footer #footerIMG {
+#footerIMG {
   background-image: url(DesmosLogo.png);
   position: absolute;
   width: 142px;
@@ -31,7 +30,7 @@
   margin-left: 50px;
 }
 
-#footerLinks footer #baseConverter {
+#baseConverter {
   position: absolute;
   width: 142px;
   height: 45px;
@@ -40,8 +39,4 @@
   margin: 5px;
   margin-left: 200px;
   text-align: center;
-}
-
-#footerLinks {
-  background-color: blue;
 }
