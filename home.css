@@ -39,4 +39,5 @@ footer {
   margin: 5px;
   margin-left: 200px;
   text-align: center;
+  box-sizing: border-box;
 }
