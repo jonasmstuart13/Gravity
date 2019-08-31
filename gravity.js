@@ -31,11 +31,8 @@ var GravityFunctions = {
     return (1 / this.initHorizontalVelocity) * d;
   },
   timeToHeightFunction(t) {
-    return (
-      (this.accelerationDueToGravity / 2) * t * t +
-      this.initUpwardVelocity * t +
-      this.initHeight
-    );
+    var variable = this.accelerationDueToGravity / 2;
+    return variable * t * t + this.initVerticalVelocity * t + this.initHeight;
   },
   distanceToHeightFunction(d) {
     return this.timeToHeightFunction(this.horizontalDistanceToTimeFunction(d));
@@ -70,7 +67,7 @@ var GravityFunctions = {
   getTangentForHeightToTime(t) {
     var x = t;
     var y = this.timeToHeightFunction(t);
-    var m = this.getCurrentUpwardVelocity(t);
+    var m = this.getCurrentVerticleVelocity(t);
     var b = y - m * x;
     return `${y} = ${m}${x} + ${b}`;
   },
