@@ -24,3 +24,34 @@
   width: 1515px;
   background-image: url("HeaderIMG.png");
 }
+
+footer {
+  border-top: 2px black solid;
+  position: absolute;
+  margin-top: 680px;
+  width: 1515px;
+  position: fixed;
+}
+
+#footerIMG {
+  background-image: url(DesmosLogo.png);
+  position: absolute;
+  width: 142px;
+  height: 45px;
+  display: inline-block;
+  margin: 5px;
+  margin-left: 50px;
+}
+
+#baseConverter {
+  position: absolute;
+  width: 142px;
+  height: 45px;
+  display: inline-block;
+  border: 1px black solid;
+  margin: 5px;
+  margin-left: 200px;
+  text-align: center;
+  box-sizing: border-box;
+  background: white;
+}
