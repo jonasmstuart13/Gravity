@@ -23,6 +23,7 @@
   z-index: 1;
   width: 1515px;
   background-image: url("HeaderIMG.png");
+  display: block;
 }
 
 footer {
