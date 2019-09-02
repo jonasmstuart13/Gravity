@@ -1,3 +1,4 @@
+/*add display:block*/
 #headerLinks p {
   color: red;
   display: inline-block;
