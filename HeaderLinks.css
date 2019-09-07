@@ -1,4 +1,8 @@
 /*add display:block*/
+* {
+  margin: 0px;
+  padding: 0px;
+}
 #headerLinks p {
   color: red;
   display: inline-block;
@@ -33,6 +37,7 @@ footer {
   margin-top: 680px;
   width: 1515px;
   position: fixed;
+  display: block;
 }
 
 #footerIMG {
